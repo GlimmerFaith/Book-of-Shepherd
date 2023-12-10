@@ -1,0 +1,23 @@
+<!-- search-book.component.html -->
+<div class="container">
+  <h3>Search Results:</h3>
+  <main class="book-list">
+    
+    
+    <ng-container *ngFor="let book of books">
+      <div class="book-card" [routerLink]="['/book', book._id]">
+        <app-book-info [bookId]="book._id"></app-book-info>
+        <img [src]="sanitizeImageUrl(book.imageLink)" alt="{{ book.title }}" />
+        <div class="book-details">
+          <h2 class="book-title">{{ book.title }}</h2>
+          <p class="book-author">Author: {{ book.author }}</p>
+        </div>
+      </div>
+    </ng-container>
+
+<div *ngIf="books.length === 0">
+  <h3>Feel sorry! This book was not found, please re-enter the title.</h3>
+</div>
+
+</main>
+</div>

@@ -1,0 +1,71 @@
+<!-- edit-book.component.html -->
+<div class="container">
+
+<div class="edit-book-form">
+<div *ngIf="!isEditMode">
+    <!-- 输入书籍 ID -->
+    <label for="bookId">Enter Book ID:</label>
+    <input type="text" id="bookId" [(ngModel)]="bookId" name="bookId" required>
+    <button type="button" class="submit-btn" (click)="loadBook()">Inquire</button>
+  </div>
+
+<!-- 如果有书籍信息，显示书籍信息 -->
+<div *ngIf="book" class="edit-book-form">
+  <h2>{{ book.title }}</h2>
+  <p>Author: {{ book.author }}</p>
+  <p>Country: {{ book.country }}</p>
+  <p>Image Link: {{ book.imageLink }}</p>
+  <p>Language: {{ book.language }}</p>
+  <p>Link: {{ book.link }}</p>
+  <p>Pages: {{ book.pages }}</p>
+  <p>Year: {{ book.year }}</p>
+
+  <button class="submit-btn" (click)="onEdit()">Edit</button>
+</div>
+
+  </div>
+  
+  <div *ngIf="isEditMode">
+    <!-- 显示编辑表单 -->
+    <div class="edit-book-form">
+      <h2>Edit Book</h2>
+      <form (ngSubmit)="onSaveChanges()">
+        <!-- 编辑表单字段 -->
+        <label for="title">Title:</label>
+        <input type="text" id="title" [(ngModel)]="updatedBook.title" name="title" required>
+  
+        <label for="author">Author:</label>
+        <input type="text" id="author" [(ngModel)]="updatedBook.author" name="author" required>
+  
+        <label for="imageLink">Image Link:</label>
+        <input type="text" id="imageLink" [(ngModel)]="updatedBook.imageLink" name="imageLink" required>
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" [(ngModel)]="updatedBook.country" name="country" required>
+  
+        <label for="language">Language:</label>
+        <input type="text" id="language" [(ngModel)]="updatedBook.language" name="language" required>
+  
+        <label for="pages">Pages:</label>
+        <input type="number" id="pages" [(ngModel)]="updatedBook.pages" name="pages" required>
+  
+        <label for="year">Year:</label>
+        <input type="number" id="year" [(ngModel)]="updatedBook.year" name="year" required>
+  
+        <label for="link">Link:</label>
+        <input type="text" id="link" [(ngModel)]="updatedBook.link" name="link" required>
+        
+        <!-- 保存和取消按钮 -->
+        <button type="button" class="submit-btn" (click)="onSaveChanges()">Save</button>
+        <button type="button" class="submit-btn" (click)="onCancelEdit()">Cancel</button>
+          
+        <!-- 确认消息 -->
+        <div *ngIf="showConfirmation" class="confirmation">
+          <p>Book edit successfully!</p>
+          <button (click)="redirectToBooks()">Confirm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

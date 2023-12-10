@@ -1,0 +1,219 @@
+.container {
+    width: 95%;
+    margin: 0 auto;
+    padding: 30px;
+    background-image: url("../../assets/image/background/A.jpg");
+    align-items: center;
+    background-position: center;
+}
+.text-container {
+    display: flex; /* 使用flex布局 */
+    justify-content: center; /* 在主轴上居中 */
+    align-items: center; /* 在交叉轴上居中 */
+    text-align: left; /* 左对齐文本 */
+    margin-top: 0; /* 设置上边距为 10px */
+    margin-bottom: 15px; /* 设置下边距为 10px */
+}
+
+.left-text {
+    font-size: 50px; /* 左侧文本的字体大小 */
+    font-family: Cursive;
+    align-self: flex-start; /* 左侧文本在交叉轴上自上而下排列，即向上对齐 */
+}
+
+.centered-text {
+    font-size: 50px; /* 居中文本的字体大小 */
+    font-family: Cursive;
+    margin-left: 100px; /* 左边距为 10px，增加一些空隙 */
+}
+
+h2 {
+    font-size: 50px;
+    font-family: Cursive;
+    margin-top: 10px; /* 设置上边距为 10px */
+    margin-bottom: 10px; /* 设置下边距为 10px */
+}
+
+
+/* Styles for the carousel */
+.slider-show {
+    overflow: hidden;
+    position: relative;
+    border-radius: 15px; /* 圆化边角 */
+}
+
+.slider-container {
+    display: flex;
+    animation: slideAnimation 15s infinite;
+}
+
+.slide {
+    flex-shrink: 0;
+    width: 100%;
+    position: relative;
+    transition: box-shadow 0.3s ease; /* 添加阴影的过渡效果 */
+    border-radius: 10px; /* 圆化边角 */
+}
+
+/* Add a hover effect */
+.slide:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* 在悬停时显示阴影 */
+}
+
+.slide a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.slide img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+
+.slide:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* 半透明黑色遮罩 */
+    z-index: 1;
+}
+
+
+@keyframes slideAnimation {
+    0%, 20% {
+      transform: translateX(0);
+    }
+    25%, 45% {
+      transform: translateX(-100%);
+    }
+    50%, 70% {
+      transform: translateX(-200%);
+    }
+    75%, 95% {
+      transform: translateX(-300%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+/* Styles for the recommended books section */
+.recommended-books {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* Styles for individual book cards */
+.book-card {
+    width: calc(30% - 20px);
+    height: 500px;
+    margin-bottom: 20px;
+    background-color: rgb(250,200,50);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex; /* 设置为 Flexbox 容器 */
+    flex-direction: column; /* 垂直方向布局 */
+    justify-content: center; /* 垂直居中 */
+    align-items: center; /* 水平居中 */
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+/* Add a subtle shadow on hover */
+.book-card:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.book-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.book-details {
+    padding: 10px;
+    font-family: cursive;
+}
+
+.book-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+.book-author {
+    margin: 0;
+    color: #666;
+}
+
+.best-seller .book-card {
+    width: calc(22% - 20px); 
+    height: 400px;
+    margin-bottom: 30px;
+    background-color: rgb(250,200,50);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex; /* 设置为 Flexbox 容器 */
+    flex-direction: column; /* 垂直方向布局 */
+    justify-content: center; /* 垂直居中 */
+    align-items: center; /* 水平居中 */
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+/* Add a subtle shadow on hover */
+.best-seller .book-card:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.best-seller .book-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+
+
+/* Adjust individual book cards for Best Books */
+.best-books .book-card {
+    width: calc(35% - 50px); /* 20% width for each book card with 20px margin */
+    margin-bottom: 20px;
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+    .book-card {
+        width: calc(50% - 20px);
+    }
+
+    .best-books .book-card {
+        width: calc(100% - 20px);
+    }
+}
+
+/* Responsive styles for even smaller screens */
+@media screen and (max-width: 576px) {
+    .book-card {
+        width: calc(100% - 20px);
+    }
+}

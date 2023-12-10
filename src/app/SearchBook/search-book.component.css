@@ -1,0 +1,74 @@
+/* Styles for individual book cards in book-list */
+.container {
+    width: 95%;
+    margin: 0 auto;
+    padding: 30px;
+    background-image: url("../../assets/image/background/A.jpg");
+    background-size: cover;
+    align-items: center;
+    min-height: 100vh;
+    background-position: center;
+}
+
+
+
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* 使书籍卡片在一行上平均分布 */
+    margin-top: 20px;
+}
+
+
+
+.book-list .book-card {
+    width: calc(25% - 60px); /* 计算每块卡片的宽度，同时考虑 margin */
+    height: 400px;
+    margin-bottom: 50px;
+    margin-right: 5px; /* 设置右侧间距 */
+    background-color: rgb(227, 212, 212);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+/* Add a subtle shadow on hover */
+.book-list .book-card:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.book-list img {
+    width: 90%;
+    height: 350px;
+    object-fit: cover; 
+}
+
+/* Styles for book details in book-list */
+.book-list div {
+    padding: 10px;
+    font-family: cursive;
+}
+
+.book-list h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+.book-list p {
+    margin: 0;
+    color: #666;
+}
+
+.manage {
+  display: flex;
+}
