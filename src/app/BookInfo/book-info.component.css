@@ -1,0 +1,95 @@
+.book-info {
+    width: 80%;
+    height: auto;
+    margin: 20px auto;
+    background-color: rgb(188, 234, 253);
+    box-shadow: 0 2px 4px rgba(219, 174, 174, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.top-part {
+    display: flex;
+    height: 100%;
+}
+
+.left-part {
+    flex: 1;
+    overflow: hidden;
+}
+
+.left-part img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.right-part {
+    flex: 2;
+    padding: 20px;
+    text-align: left;
+}
+
+.bottom-part {
+    padding: 20px;
+    background-color: #f1fad3;
+    flex: 1;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-left: 20px;
+}
+
+th,
+td {
+    padding: 10px;
+    border-bottom: 2px solid #ddd;
+}
+
+.add-review-form {
+    padding: 20px;
+    background-color: #e8f6ff;
+    text-align: center;
+}
+
+form {
+    max-width: 400px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+}
+
+input,
+textarea,
+button {
+    width: 100%;
+}
+
+textarea {
+    height: 100px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

@@ -1,8 +1,7 @@
-/* Common styles for all screen sizes */
 .container {
   margin: 0;
   padding: 0;
-  
+
 }
 
 .navbar {
@@ -13,10 +12,7 @@
   height: 60px;
   padding: 5px 15px;
   background-color: rgb(136, 200, 246)
-  /* margin-right: -8px; */
 }
-
-
 
 h3 a {
   text-decoration: none;
@@ -31,8 +27,7 @@ input {
   border-radius: 18px;
 }
 
-/* Responsive styles for smaller screens */
- @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .navbar {
     padding: 3px 10px;
   }
@@ -40,10 +35,9 @@ input {
   input {
     width: 200px;
   }
-} 
+}
 
-/* Responsive styles for even smaller screens */
- @media screen and (max-width: 576px) {
+@media screen and (max-width: 576px) {
   .navbar {
     flex-direction: column;
     align-items: center;
@@ -63,4 +57,3 @@ input {
     align-items: center;
   }
 }
-

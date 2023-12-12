@@ -1,14 +1,16 @@
+from tokenize import generate_tokens
 from flask import Flask, jsonify, request, make_response
 from pymongo import MongoClient
 from bson import ObjectId
-from flask_cors import CORS  # 导入 CORS
+from flask_cors import CORS
 
 
 app = Flask(__name__)
-CORS(app)  # 启用 CORS，允许所有来源
+CORS(app)
 client = MongoClient("mongodb://127.0.0.1:27017")
 db = client.atr
 books = db.books
+users = db.users
 
 
 # 展示所有数据
@@ -16,21 +18,13 @@ books = db.books
 def show_all_books():
     page = int(request.args.get('page', 1))
     page_size = int(request.args.get('pageSize', 10))
-
-    # 获取数据库中的书籍总数
     total_books = books.count_documents({})
-
-    # 计算起始索引和结束索引
     start_index = (page - 1) * page_size
     end_index = start_index + page_size
 
-    # 获取数据库中的书籍数据
     all_books = list(books.find())
-
-    # 根据分页参数截取数据
     books_to_return = all_books[start_index:end_index]
 
-    # 处理数据，转换 ObjectId 为字符串等
     data_to_return = []
     for book in books_to_return:
         book['_id'] = str(book['_id'])
@@ -38,7 +32,6 @@ def show_all_books():
             review['_id'] = str(review['_id'])
         data_to_return.append(book)
 
-    # 将总书籍数量添加到返回的 JSON 数据中
     response_data = {
         'totalBooks': total_books,
         'books': data_to_return
@@ -63,9 +56,8 @@ def show_one_book(book_id):
 # 展示包含 title 的所有数据
 @app.route("/api/books/title/<book_title>", methods=["GET"])
 def show_books_by_title(book_title):
-    # 使用正则表达式忽略大小写，查找匹配的书籍
     matching_books = books.find({"title": {"$regex": book_title, "$options": "i"}})
-    
+
     books_list = []
     for book in matching_books:
         book['_id'] = str(book['_id'])
@@ -77,8 +69,6 @@ def show_books_by_title(book_title):
         return make_response(jsonify(books_list), 200)
     else:
         return make_response(jsonify({"error": "No matching books found"}), 404)
-
-
 
 
 # 插入 id数据
@@ -162,7 +152,8 @@ def delete_book(id_):
 @app.route("/api/books/<string:id_>/reviews", methods=["POST"])
 def add_review(id_):
     if request.is_json:
-        data = request.get_json()
+       data = request.get_json()
+       if all(key in data for key in ["username","comment", "stars"]):
         try:
             new_review = {
                 "_id": ObjectId(),
@@ -200,6 +191,9 @@ def fetch_all_reviews(id_):
             review["_id"] = str(review["_id"])
             data_to_return.append(review)
     return make_response(jsonify(data_to_return), 200)
+
+
+
 
 
 # 获取 id数据的 id子数据
@@ -281,6 +275,76 @@ def delete_all_reviews(book_id):
             return make_response(jsonify({"error": "Invalid book ID"}), 404)
     except Exception as e:
         return make_response(jsonify({"error": f"Error: {str(e)}"}), 500)
+
+
+# 获取所有用户
+@app.route("/api/user", methods=["GET"])
+def get_all_users():
+    all_users = list(users.find({}, {'password': 0}))  # 排除密码信息
+    users_to_return = all_users  # 修改这一行
+    data_to_return = []
+    for user in users_to_return:
+        user['_id'] = str(user['_id'])
+        # 如果用户信息中有其他字段需要处理，可以在这里添加相应逻辑
+        data_to_return.append(user)
+
+    response_data = {
+        'totalUsers': len(all_users),  # 修改为获取用户列表的长度
+        'users': data_to_return
+    }
+    return make_response(jsonify(response_data), 200)
+
+
+# 检查用户名重复
+@app.route("/api/user/check", methods=["POST"])
+def check_duplicate_username():
+    data = request.get_json()
+    username = data.get("username", "")
+
+    if users.find_one({'username': username}):
+        return jsonify({"duplicate": True}), 409
+    else:
+        return jsonify({"duplicate": False})
+
+
+# 注册用户
+@app.route("/api/user/register", methods=["POST"])
+def register_user():
+    if request.is_json:
+        data = request.get_json()
+        if all(key in data for key in ["username", "password"]):
+            # 检查用户名是否已存在
+            existing_user = users.find_one({'username': data['username']})
+            if existing_user:
+                return make_response(jsonify({'message': 'Username already exists'}), 400)
+            # 存储用户信息
+            user_data = {
+                'username': data['username'],
+                'password': data['password']
+                # 可以根据需要添加其他用户信息
+            }
+            user_id = users.insert_one(user_data).inserted_id
+
+            return make_response(jsonify({'message': 'User added successfully', 'user_id': str(user_id)}), 201)
+        else:
+            return make_response(jsonify({"error": "Missing JSON data"}), 400)
+    else:
+        return make_response(jsonify({"error": "Invalid content type. Use application/json"}), 400)
+
+
+# 用户登录
+@app.route("/api/user/login", methods=["POST"])
+def login_user():
+    data = request.get_json()
+    user = users.find_one({'username': data['username'], 'password': data['password']})
+
+    if user:
+        # 在这里生成并返回一个身份验证令牌
+        # 可以使用JWT库或者其他身份验证机制
+        token = generate_tokens(user['_id'])  # 假设有一个生成令牌的函数
+        return make_response(jsonify({'message': 'Login successful', 'token': token}), 200)
+    else:
+        return make_response(jsonify({'message': 'Invalid username or password'}), 401)
 
 
 if __name__ == "__main__":

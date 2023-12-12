@@ -1,69 +1,64 @@
 .container {
-    width: 95%;
-    margin: 0 auto;
-    padding: 30px;
-    background-image: url("../../assets/image/background/C.jpg");
-    background-size: cover;
-    align-items: center;
-    background-position: center;
+  width: 95%;
+  margin: 0 auto;
+  padding: 30px;
+  background-image: url("../../assets/image/background/C.jpg");
+  background-size: cover;
+  align-items: center;
+  background-position: center;
 }
 
-/* Styles for individual book cards in book-list */
 .book-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; /* 使书籍卡片在一行上平均分布 */
-    margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
 }
-
-
 
 .book-list .book-card {
-    width: calc(25% - 60px); /* 计算每块卡片的宽度，同时考虑 margin */
-    height: 400px;
-    margin-bottom: 50px;
-    margin-right: 5px; /* 设置右侧间距 */
-    background-color: rgb(227, 212, 212);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.2s ease;
+  width: calc(25% - 60px);
+  height: 400px;
+  margin-bottom: 50px;
+  margin-right: 5px;
+  background-color: rgb(227, 212, 212);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease;
 }
 
-/* Add a subtle shadow on hover */
 .book-list .book-card:hover {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .book-list img {
-    width: 90%;
-    height: 350px;
-    object-fit: cover; 
+  width: 90%;
+  height: 350px;
+  object-fit: cover;
 }
 
-/* Styles for book details in book-list */
 .book-list div {
-    padding: 10px;
-    font-family: cursive;
+  padding: 10px;
+  font-family: cursive;
 }
 
 .book-list h2 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: cursive;
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: cursive;
 }
 
 .book-list p {
-    margin: 0;
-    color: #666;
+  margin: 0;
+  color: #666;
 }
 
 .manage {
@@ -76,9 +71,9 @@
   margin: 0 5px;
   cursor: pointer;
   border: 1px solid #ccc;
-  background-color:  rgb(227, 212, 212);
+  background-color: rgb(227, 212, 212);
   border-radius: 5px;
-  margin-right: 100px; /* 调整按钮之间的右边距，可以根据需要调整 */
+  margin-right: 100px;
 }
 
 .create-btn a {
@@ -88,50 +83,43 @@
   text-align: center;
   text-decoration: none;
   color: #fff;
-  background-color: #007bff; /* 添加按钮背景颜色，可以根据需要调整 */
+  background-color: #007bff;
 }
 
 .create-btn a:hover {
-  text-decoration: underline; /* 鼠标悬停时显示下划线效果 */
+  text-decoration: underline;
 }
 
-
-
 .pagination-container {
-    display: flex;
-    justify-content: flex-end; /* 将元素放置在容器的右侧 */
-    align-items: center; /* 垂直居中对齐 */
-    margin-top: 20px; /* 根据需要调整顶部间距 */
-  }
-  
-  .button {
-    padding: 10px;
-    margin: 0 5px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    background-color: #f8f8f8;
-    border-radius: 5px;
-  }
-  
-  .button:disabled {
-    opacity: 0.5; /* 禁用状态的透明度 */
-    cursor: not-allowed;
-  }
-  
-  /* 上一页按钮样式 */
-  #previousButton {
-    order: 1; /* 控制顺序，1为最左侧 */
-  }
-  
-  /* 下一页按钮样式 */
-  #nextButton {
-    order: 3; /* 控制顺序，3为最右侧 */
-  }
-  
-  /* calculateRange 样式 */
-  #rangeText {
-    order: 2; /* 控制顺序，2为中间位置 */
-    font-weight: bold; /* 加粗字体 */
-  }
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 20px;
+}
 
-  
+.button {
+  padding: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#previousButton {
+  order: 1;
+}
+
+#nextButton {
+  order: 3;
+}
+
+#rangeText {
+  order: 2;
+  font-weight: bold;
+}

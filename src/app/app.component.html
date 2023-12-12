@@ -1,19 +1,26 @@
-<div class="container">  
+<div class="container">
   <nav class="navbar" [style.backgroundColor]="'rgb(136, 200, 246)'">
-    <div [style.display]="'flex'" [style.justifyContent]="'space-between'" [style.padding]="'0px 0px'" [style.textAlign]="'center'">
-      <div [style.display]="'flex'" [style.alignItems]="'center'" [style.gap]="'20px'" [style.justifyContent]="'space-between'">
+    <div [style.display]="'flex'" [style.justifyContent]="'space-between'" [style.padding]="'0px 0px'"
+      [style.textAlign]="'center'">
+
+      <div [style.display]="'flex'" [style.alignItems]="'center'" [style.gap]="'20px'"
+        [style.justifyContent]="'space-between'">
         <img [style.width]="'150px'" [style.height]="'60px'" [src]="'/assets/image/background/logo.jpg'" alt="reading">
         <input type="text" [(ngModel)]="searchTerm" placeholder="Search book here" (keyup.enter)="onSearch()">
         <h3 [style.fontFamily]="'Papyrus'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Everything you want to read is here</h3>
-        </div>
-        <div [style.display]="'flex'" [style.gap]="'50px'" [style.justifyContent]="'space-around'" [style.alignItems]="'center'">
-          <h3 [style.fontFamily]="'cursive'"><a routerLink="/">Home</a></h3>
-          <h3 [style.fontFamily]="'cursive'"><a routerLink="/books">Books</a></h3>
-          <h3 [style.fontFamily]="'cursive'"><a routerLink="/user">User</a></h3>
-        </div>
       </div>
+
+      <div [style.display]="'flex'" [style.gap]="'50px'" [style.justifyContent]="'space-around'"
+        [style.alignItems]="'center'">
+        <h3 [style.fontFamily]="'cursive'"><a routerLink="/">Home</a></h3>
+        <h3 [style.fontFamily]="'cursive'"><a routerLink="/books">Books</a></h3>
+        <h3 [style.fontFamily]="'cursive'"><a routerLink="/user">User</a></h3>
+      </div>
+    </div>
   </nav>
+
   <main>
     <router-outlet></router-outlet>
   </main>
+  
 </div>

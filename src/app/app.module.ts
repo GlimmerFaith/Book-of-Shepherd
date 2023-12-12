@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello/hello.component';
 import { HomePageComponent } from './HomePage/homepage.component';
 import { BookListComponent } from './BookList/book-list.component';
 import { BookService } from './Book/book.service';
@@ -19,20 +18,29 @@ import { RouterModule } from '@angular/router';
 import { EditBookComponent } from './EditBook/edit-book.component';
 import { DeleteBookComponent } from './DeleteBook/delete-book.component';
 import { SearchBookComponent } from './SearchBook/search-book.component';
+import { LoginComponent } from './LoginUser/login.component';
+import { RegisterComponent } from './RegisterUser/register.component';
+import { UserComponent } from './User/user.component';
+import { AuthService } from './Authenticate/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HelloComponent,
     HomePageComponent,
     BookListComponent,
     BookInfoComponent,
     AddBookComponent,
     EditBookComponent,
     DeleteBookComponent,
-    SearchBookComponent
+    SearchBookComponent,
+    LoginComponent,
+    RegisterComponent,
+    UserComponent,
+
   ],
   imports: [
+    RouterModule.forRoot([]),
+    AppRoutingModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -42,10 +50,10 @@ import { SearchBookComponent } from './SearchBook/search-book.component';
     MatPaginatorModule,
     ReactiveFormsModule,
     CommonModule,
-    RouterModule, 
-    ReactiveFormsModule
+    RouterModule
   ],
   providers: [
+    AuthService,
     BookService,
     {
       provide: MAT_DIALOG_DEFAULT_OPTIONS,
@@ -54,4 +62,4 @@ import { SearchBookComponent } from './SearchBook/search-book.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

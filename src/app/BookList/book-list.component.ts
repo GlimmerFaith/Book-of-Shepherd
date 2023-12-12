@@ -14,10 +14,12 @@ import { MatTableDataSource } from '@angular/material/table';
 export class BookListComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
-
-  dataSource: MatTableDataSource<Book> = new MatTableDataSource<Book>(); // 初始化为 MatTableDataSource
-
+  dataSource: MatTableDataSource<Book> = new MatTableDataSource<Book>();
   booksList: Book[] = [];
+
+  currentPage = 1;
+  pageSize = 20;
+  totalBooks: number = 0;
 
   constructor(private bookService: BookService, private sanitizer: DomSanitizer) { }
 
@@ -26,18 +28,12 @@ export class BookListComponent implements OnInit {
     this.loadBooks();
   }
 
+  calculateRange(): string {
+    const startIndex = (this.currentPage - 1) * this.pageSize + 1;
+    const endIndex = Math.min(this.currentPage * this.pageSize, this.totalBooks);
+    return `${startIndex} - ${endIndex} of ${this.totalBooks}`;
+  }
 
-  currentPage = 1;
-  pageSize = 20;
-  totalBooks: number = 0;
-
- calculateRange(): string {
-  const startIndex = (this.currentPage - 1) * this.pageSize + 1;
-  const endIndex = Math.min(this.currentPage * this.pageSize, this.totalBooks);
-  return `${startIndex} - ${endIndex} of ${this.totalBooks}`;
-}
-
-  
   loadBooks(): void {
     this.bookService.showAllBooks(this.currentPage, this.pageSize)
       .subscribe(
@@ -50,7 +46,6 @@ export class BookListComponent implements OnInit {
         }
       );
   }
-  
 
   onPageChange(newPage: number): void {
     this.currentPage = newPage;
@@ -61,19 +56,17 @@ export class BookListComponent implements OnInit {
       this.currentPage++;
       this.loadBooks();
     }
-  }  
+  }
   get totalPages(): number {
     return Math.ceil(this.totalBooks / this.pageSize);
   }
-  
+
   loadPreviousPage(): void {
     this.currentPage--;
     this.loadBooks();
   }
-  
 
   fetchBooks(): void {
-    // 调用 BookService 中的方法获取数据
     this.bookService.showAllBooks(this.paginator?.pageIndex, this.paginator?.pageSize).subscribe(
       (books: Book[]) => {
         this.booksList = books;
@@ -85,16 +78,9 @@ export class BookListComponent implements OnInit {
   }
 
   sanitizeImageUrl(imageLink: string): any {
-    // 使用 split('/') 分割字符串，取最后一部分作为文件名
-    const fileName = imageLink.split('/').pop() || ''; // 如果数组为空，使用空字符串
-  
-    // 移除文件扩展名
-    const fileNameWithoutExtension = fileName.split('.').shift() || ''; // 如果数组为空，使用空字符串
-  
-    // 构建安全的 URL
+    const fileName = imageLink.split('/').pop() || '';
+    const fileNameWithoutExtension = fileName.split('.').shift() || '';
     const imageUrl = `assets/image/bookInfo/${fileNameWithoutExtension}.jpg`;
-  
-    // 通过 DomSanitizer 信任 URL
     return this.sanitizer.bypassSecurityTrustUrl(imageUrl);
   }
 

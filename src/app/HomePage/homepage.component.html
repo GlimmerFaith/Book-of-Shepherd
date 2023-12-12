@@ -2,146 +2,117 @@
   <div class="text-container">
     <span class="left-text">今日推荐 ：</span>
     <span class="centered-text">安居不用架高堂&nbsp;&nbsp;&nbsp;书中自有黄金屋</span>
-    </div>
-    <main>
-      <div class="slider-show">
-        <a href="https://github.com/GlimmerFaith/" target="_blank">
-        <div class="slider-container"> 
-          <div class="slide" >
-            <img
-              src="../../assets/image/background/carousel_1.jpg"
-              alt="Image 1"
-            />
+  </div>
+  
+  <main>
+    <div class="slider-show">
+      <a href="https://github.com/GlimmerFaith/" target="_blank">
+        <div class="slider-container">
+          <div class="slide">
+            <img src="../../assets/image/background/carousel_1.jpg" alt="Image 1" />
           </div>
           <div class="slide">
-            <img
-              src="../../assets/image/background/carousel_2.jpg"
-              alt="Image 2"
-            />
+            <img src="../../assets/image/background/carousel_2.jpg" alt="Image 2" />
           </div>
           <div class="slide">
-            <img
-              src="../../assets/image/background/carousel_3.jpg"
-              alt="Image 3"
-            />
+            <img src="../../assets/image/background/carousel_3.jpg" alt="Image 3" />
           </div>
           <div class="slide">
-            <img
-              src="../../assets/image/background/carousel_4.jpg"
-              alt="Image 4"
-            />
+            <img src="../../assets/image/background/carousel_4.jpg" alt="Image 4" />
           </div>
         </div>
       </a>
-      </div>
-  
-      <br /><br /><br />
-      <h1>Recommended Books</h1>
-      <section class="recommended-books">
-        <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e252']">
-          <img [style.width]="'400px'" [style.height]="'450px'" 
-          src="../../assets/image/bookInfo/dead-souls.jpg" 
-          alt="Book 1" />         
-          <div class="book-details">
-            <h3 class="book-title">Dead Souls</h3>
-            <p class="book-author">Nikolai Gogol</p>
-          </div>
-        </div>
-        <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e288']">
-          <img [style.width]="'750px'" [style.height]="'450px'" 
-          src="../../assets/image/bookInfo/the-adventures-of-huckleberry-finn.jpg" 
-          alt="Book 2" />
-          <div class="book-details">
-            <h3 class="book-title">Adventures of Huckleberry Finn</h3>
-            <p class="book-author">Mark Twain</p>
-          </div>
-        </div>
-        <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e240']">
-          <img [style.width]="'400px'" [style.height]="'450px'" 
-          src="../../assets/image/bookInfo/great-expectations.jpg" 
-          alt="Book 3" />
-          <div class="book-details">
-            <h3 class="book-title">Great Expectations</h3>
-            <p class="book-author">Charles Dickens</p>
-          </div>
-        </div>
-      </section>
+    </div>
 
-      <br /><br /><br />
-      <h1>Best Seller</h1>
-      <section class="recommended-books best-seller">
-        <!-- 第一本书 -->
-        <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e249']">
-            <img src="../../assets/image/bookInfo/medea.jpg"
-             alt="best seller 1" />
-            <div class="book-details">
-                <h3 class="book-title">Medea</h3>
-                <p class="book-author">Euripides</p>
-            </div>
+    <br /><br /><br />
+    <h1>Recommended Books</h1>
+    <section class="recommended-books">
+      <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e252']">
+        <img [style.width]="'400px'" [style.height]="'450px'" src="../../assets/image/bookInfo/dead-souls.jpg"
+          alt="Book 1" />
+        <div class="book-details">
+          <h3 class="book-title">Dead Souls</h3>
+          <p class="book-author">Nikolai Gogol</p>
         </div>
-        <!-- 第二本书 -->
-        <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e253']">
-            <img src="../../assets/image/bookInfo/the-tin-drum.jpg"
-             alt="best seller 2" />
-            <div class="book-details">
-                <h3 class="book-title">The Tin Drum</h3>
-                <p class="book-author">Günter Grass</p>
-            </div>
+      </div>
+      <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e288']">
+        <img [style.width]="'750px'" [style.height]="'450px'"
+          src="../../assets/image/bookInfo/the-adventures-of-huckleberry-finn.jpg" alt="Book 2" />
+        <div class="book-details">
+          <h3 class="book-title">Adventures of Huckleberry Finn</h3>
+          <p class="book-author">Mark Twain</p>
         </div>
-        <!-- 其他书籍卡片依此类推 -->
-        <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e255']">
-          <img src="../../assets/image/bookInfo/hunger.jpg"
-           alt="best seller 3" />
-          <div class="book-details">
-              <h3 class="book-title">Hunger</h3>
-              <p class="book-author">Knut Hamsun</p>
-          </div>
+      </div>
+      <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e240']">
+        <img [style.width]="'400px'" [style.height]="'450px'" src="../../assets/image/bookInfo/great-expectations.jpg"
+          alt="Book 3" />
+        <div class="book-details">
+          <h3 class="book-title">Great Expectations</h3>
+          <p class="book-author">Charles Dickens</p>
         </div>
-        <!-- 其他书籍卡片依此类推 -->
-        <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e260']">
-          <img src="../../assets/image/bookInfo/zorba-the-greek.jpg"
-           alt="best seller 4" />
-          <div class="book-details">
-              <h3 class="book-title">Zorba the Greek</h3>
-              <p class="book-author">Nikos Kazantzakis</p>
-          </div>
+      </div>
+    </section>
+
+    <br /><br /><br />
+    <h1>Best Seller</h1>
+    <section class="recommended-books best-seller">
+      <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e249']">
+        <img src="../../assets/image/bookInfo/medea.jpg" alt="best seller 1" />
+        <div class="book-details">
+          <h3 class="book-title">Medea</h3>
+          <p class="book-author">Euripides</p>
         </div>
-        <!-- 其他书籍卡片依此类推 -->
-        <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e264']">
-          <img src="../../assets/image/bookInfo/the-golden-notebook.jpg"
-           alt="best seller 5" />
-          <div class="book-details">
-              <h3 class="book-title">The Golden Notebook</h3>
-              <p class="book-author">Doris Lessing</p>
-          </div>
+      </div>
+      <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e253']">
+        <img src="../../assets/image/bookInfo/the-tin-drum.jpg" alt="best seller 2" />
+        <div class="book-details">
+          <h3 class="book-title">The Tin Drum</h3>
+          <p class="book-author">Günter Grass</p>
         </div>
-        <!-- 其他书籍卡片依此类推 -->
-        <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e26a']">
-          <img src="../../assets/image/bookInfo/moby-dick.jpg"
-           alt="best seller 6" />
-          <div class="book-details">
-              <h3 class="book-title">Moby Dick</h3>
-              <p class="book-author">Herman Melville</p>
-          </div>
+      </div>
+      <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e255']">
+        <img src="../../assets/image/bookInfo/hunger.jpg" alt="best seller 3" />
+        <div class="book-details">
+          <h3 class="book-title">Hunger</h3>
+          <p class="book-author">Knut Hamsun</p>
         </div>
-        <!-- 其他书籍卡片依此类推 -->
-        <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e26d']">
-          <img src="../../assets/image/bookInfo/beloved.jpg"
-           alt="best seller 7" />
-          <div class="book-details">
-              <h3 class="book-title">Beloved</h3>
-              <p class="book-author">Toni Morrison</p>
-          </div>
+      </div>
+      <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e260']">
+        <img src="../../assets/image/bookInfo/zorba-the-greek.jpg" alt="best seller 4" />
+        <div class="book-details">
+          <h3 class="book-title">Zorba the Greek</h3>
+          <p class="book-author">Nikos Kazantzakis</p>
         </div>
-        <!-- 其他书籍卡片依此类推 -->
-        <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e28d']">
-          <img src="../../assets/image/bookInfo/mrs-dalloway.jpg"
-           alt="best seller 8" />
-          <div class="book-details">
-              <h3 class="book-title">Mrs Dalloway</h3>
-              <p class="book-author">Virginia Woolf</p>
-          </div>
+      </div>
+      <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e264']">
+        <img src="../../assets/image/bookInfo/the-golden-notebook.jpg" alt="best seller 5" />
+        <div class="book-details">
+          <h3 class="book-title">The Golden Notebook</h3>
+          <p class="book-author">Doris Lessing</p>
         </div>
-      </section>
-    </main>
-  </div>
+      </div>
+      <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e26a']">
+        <img src="../../assets/image/bookInfo/moby-dick.jpg" alt="best seller 6" />
+        <div class="book-details">
+          <h3 class="book-title">Moby Dick</h3>
+          <p class="book-author">Herman Melville</p>
+        </div>
+      </div>
+      <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e26d']">
+        <img src="../../assets/image/bookInfo/beloved.jpg" alt="best seller 7" />
+        <div class="book-details">
+          <h3 class="book-title">Beloved</h3>
+          <p class="book-author">Toni Morrison</p>
+        </div>
+      </div>
+      <div class="book-card" [routerLink]="['/book/65677d8f2395cdd05610e28d']">
+        <img src="../../assets/image/bookInfo/mrs-dalloway.jpg" alt="best seller 8" />
+        <div class="book-details">
+          <h3 class="book-title">Mrs Dalloway</h3>
+          <p class="book-author">Virginia Woolf</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>

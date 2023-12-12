@@ -1,15 +1,12 @@
-<!-- delete-book.component.html -->
 <div class="container">
 
-    <div class="delete-book-form">
+  <div class="delete-book-form">
     <div *ngIf="!isDeleteMode">
-        <!-- 输入书籍 ID -->
-        <label for="bookId">Enter Book ID:</label>
-        <input type="text" id="bookId" [(ngModel)]="bookId" name="bookId" required>
-        <button type="button" class="submit-btn" (click)="loadBook()">Inquire</button>
-      </div>
-    
-    <!-- 如果有书籍信息，显示书籍信息 -->
+      <label for="bookId">Enter Book ID:</label>
+      <input type="text" id="bookId" [(ngModel)]="bookId" name="bookId" required>
+      <button type="button" class="submit-btn" (click)="loadBook()">Inquire</button>
+    </div>
+
     <div *ngIf="book" class="delete-book-form">
       <h2>{{ book.title }}</h2>
       <p>Author: {{ book.author }}</p>
@@ -19,16 +16,14 @@
       <p>Link: {{ book.link }}</p>
       <p>Pages: {{ book.pages }}</p>
       <p>Year: {{ book.year }}</p>
-    
       <button class="submit-btn" (click)="onDelete()">Delete</button>
     </div>
-   
 
-    <!-- 确认消息 -->
-  <div *ngIf="showConfirmation" class="confirmation">
-    <p>Book deleted successfully!</p>
-    <button (click)="redirectToBooks()">Confirm</button>
-  </div>
-</div>
-</div>
+    <div *ngIf="showConfirmation" class="confirmation">
+      <p>Book deleted successfully!</p>
+      <button (click)="redirectToBooks()">Confirm</button>
+    </div>
     
+  </div>
+
+</div>

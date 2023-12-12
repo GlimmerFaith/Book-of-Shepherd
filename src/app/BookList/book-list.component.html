@@ -5,32 +5,24 @@
     <button class="create-btn"><a href="/edit">edit</a></button>
     <button class="create-btn"><a href="/delete">delete</a></button>
   </div>
-  
 
   <main class="book-list">
-
     <ng-container *ngFor="let book of booksList">
       <div class="book-card" [routerLink]="['/book', book._id]">
         <app-book-info [bookId]="book._id"></app-book-info>
         <img [src]="sanitizeImageUrl(book.imageLink)" alt="{{ book.title }}" />
         <div class="book-details">
-          <h2 class="book-title">Name ：{{ book.title }}</h2>
+          <h2 class="book-title">Name :{{ book.title }}</h2>
           <p class="book-author">Author: {{ book.author }}</p>
         </div>
       </div>
     </ng-container>
-
-
   </main>
-  
 
-<div class="pagination-container">
-  <button id="previousButton" class="button" (click)="loadPreviousPage()" [disabled]="currentPage === 1">上一页</button>
-  <p id="rangeText" class="button">{{ calculateRange() }}</p>
-  <button id="nextButton" class="button" (click)="loadNextPage()"[disabled]="currentPage === totalPages">下一页</button>
-
-
-</div>
-
+  <div class="pagination-container">
+    <button id="previousButton" class="button" (click)="loadPreviousPage()" [disabled]="currentPage === 1">上一页</button>
+    <p id="rangeText" class="button">{{ calculateRange() }}</p>
+    <button id="nextButton" class="button" (click)="loadNextPage()" [disabled]="currentPage === totalPages">下一页</button>
+  </div>
 
 </div>

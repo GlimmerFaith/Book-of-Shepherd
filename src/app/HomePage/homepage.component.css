@@ -6,40 +6,39 @@
     align-items: center;
     background-position: center;
 }
+
 .text-container {
-    display: flex; /* 使用flex布局 */
-    justify-content: center; /* 在主轴上居中 */
-    align-items: center; /* 在交叉轴上居中 */
-    text-align: left; /* 左对齐文本 */
-    margin-top: 0; /* 设置上边距为 10px */
-    margin-bottom: 15px; /* 设置下边距为 10px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 15px;
 }
 
 .left-text {
-    font-size: 50px; /* 左侧文本的字体大小 */
+    font-size: 50px;
     font-family: Cursive;
-    align-self: flex-start; /* 左侧文本在交叉轴上自上而下排列，即向上对齐 */
+    align-self: flex-start;
 }
 
 .centered-text {
-    font-size: 50px; /* 居中文本的字体大小 */
+    font-size: 50px;
     font-family: Cursive;
-    margin-left: 100px; /* 左边距为 10px，增加一些空隙 */
+    margin-left: 100px;
 }
 
 h2 {
     font-size: 50px;
     font-family: Cursive;
-    margin-top: 10px; /* 设置上边距为 10px */
-    margin-bottom: 10px; /* 设置下边距为 10px */
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-
-/* Styles for the carousel */
 .slider-show {
     overflow: hidden;
     position: relative;
-    border-radius: 15px; /* 圆化边角 */
+    border-radius: 15px;
 }
 
 .slider-container {
@@ -51,13 +50,12 @@ h2 {
     flex-shrink: 0;
     width: 100%;
     position: relative;
-    transition: box-shadow 0.3s ease; /* 添加阴影的过渡效果 */
-    border-radius: 10px; /* 圆化边角 */
+    transition: box-shadow 0.3s ease;
+    border-radius: 10px;
 }
 
-/* Add a hover effect */
 .slide:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* 在悬停时显示阴影 */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .slide a {
@@ -79,30 +77,37 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* 半透明黑色遮罩 */
+    background: rgba(0, 0, 0, 0.3);
     z-index: 1;
 }
 
-
 @keyframes slideAnimation {
-    0%, 20% {
-      transform: translateX(0);
-    }
-    25%, 45% {
-      transform: translateX(-100%);
-    }
-    50%, 70% {
-      transform: translateX(-200%);
-    }
-    75%, 95% {
-      transform: translateX(-300%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
 
-/* Styles for the recommended books section */
+    0%,
+    20% {
+        transform: translateX(0);
+    }
+
+    25%,
+    45% {
+        transform: translateX(-100%);
+    }
+
+    50%,
+    70% {
+        transform: translateX(-200%);
+    }
+
+    75%,
+    95% {
+        transform: translateX(-300%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
 .recommended-books {
     display: flex;
     flex-wrap: wrap;
@@ -110,34 +115,30 @@ h2 {
     margin-top: 20px;
 }
 
-h1{
+h1 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
-
-/* Styles for individual book cards */
 .book-card {
     width: calc(30% - 20px);
     height: 500px;
     margin-bottom: 20px;
-    background-color: rgb(250,200,50);
+    background-color: rgb(250, 200, 50);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     overflow: hidden;
-    display: flex; /* 设置为 Flexbox 容器 */
-    flex-direction: column; /* 垂直方向布局 */
-    justify-content: center; /* 垂直居中 */
-    align-items: center; /* 水平居中 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     transition: transform 0.2s ease;
 }
 
-/* Add a subtle shadow on hover */
 .book-card:hover {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
-     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .book-card img {
@@ -164,26 +165,25 @@ h1{
 }
 
 .best-seller .book-card {
-    width: calc(22% - 20px); 
+    width: calc(22% - 20px);
     height: 400px;
     margin-bottom: 30px;
-    background-color: rgb(250,200,50);
+    background-color: rgb(250, 200, 50);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     overflow: hidden;
-    display: flex; /* 设置为 Flexbox 容器 */
-    flex-direction: column; /* 垂直方向布局 */
-    justify-content: center; /* 垂直居中 */
-    align-items: center; /* 水平居中 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     transition: transform 0.2s ease;
 }
 
-/* Add a subtle shadow on hover */
 .best-seller .book-card:hover {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .best-seller .book-card img {
@@ -192,15 +192,10 @@ h1{
     object-fit: cover;
 }
 
-
-
-/* Adjust individual book cards for Best Books */
 .best-books .book-card {
-    width: calc(35% - 50px); /* 20% width for each book card with 20px margin */
-    margin-bottom: 20px;
+    width: calc(35% - 50px);
 }
 
-/* Responsive styles for smaller screens */
 @media screen and (max-width: 768px) {
     .book-card {
         width: calc(50% - 20px);
@@ -211,7 +206,6 @@ h1{
     }
 }
 
-/* Responsive styles for even smaller screens */
 @media screen and (max-width: 576px) {
     .book-card {
         width: calc(100% - 20px);

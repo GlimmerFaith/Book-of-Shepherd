@@ -1,0 +1,28 @@
+<div class="container">
+<div class="register-container">
+  <h2>Register</h2>
+  <form (submit)="register()" #registerForm="ngForm" novalidate>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" [(ngModel)]="username" name="username" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" required>
+    </div>
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+  </form>
+
+  <div *ngIf="registrationStatus === false && !registerForm.invalid" class="error-message">
+    Username already exists. Please choose another username.
+  </div>
+
+  <div *ngIf="registrationStatus === true" class="success-message">
+    Registration successful! Redirecting to login page...
+  </div>
+
+  <div class="login-link">
+    <p>Already have an account? <button type="submit" (click)="returnToLogin()">Login Here</button></p>
+  </div>
+</div>
+</div>

@@ -1,4 +1,3 @@
-// book.model.ts
 export class Book {
   constructor(
     public _id: string,
@@ -11,15 +10,14 @@ export class Book {
     public title: string,
     public year: number,
     public reviews: Review[]
-  ) {}
+  ) { }
 }
 
-// review.model.ts
 export class Review {
   constructor(
     public _id: string,
     public username: string,
     public comment: string,
-    public stars : number
-  ) {}
+    public stars: number
+  ) { }
 }

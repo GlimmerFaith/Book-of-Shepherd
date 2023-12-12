@@ -40,4 +40,10 @@ export class BookService {
     return this.http.get<Book[]>(url);
   }
 
+  addReview(bookId: string, username: string, comment: string, stars: number): Observable<any> {
+    const reviewData = { username, comment, stars };
+    return this.http.post(`${this.apiUrl}/${bookId}/reviews`, reviewData);
+  }
+
+
 }
